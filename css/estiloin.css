@@ -1,0 +1,138 @@
+/* ------------------------------------- TEXTO ---------------------------------------- */
+
+h1, h2, h3, img {
+    position: relative;
+    z-index: 10;
+    color: white;
+}
+
+#texto {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0 20px;
+    text-align: center;
+    transition: transform 2s ease, opacity 1s ease;
+}
+
+.hero {
+    max-width: 900px;
+}
+
+.hero h1 {
+    font-size: 48px;
+    margin-bottom: 20px;
+}
+
+.hero h2 {
+    font-size: 26px;
+    font-weight: 400;
+    margin-bottom: 50px;
+    opacity: 0.9;
+}
+
+/* ------------------------------------- BOTÕES ---------------------------------------- */
+
+.botoes {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
+}
+
+.btn-mp, .btn-sm {
+    text-decoration: none;
+    padding: 12px 28px;
+    border-radius: 40px;
+    font-size: 18px;
+    font-weight: 500;
+    background: white;
+    color: #0b1220;
+    transition: 0.3s ease;
+}
+
+.btn-sm:hover, .btn-mp:hover{
+    transform: scale(1.1);
+    box-shadow: 0 8px 20px rgba(255,255,255,0.3);
+}
+
+.btn-sm {
+    background: transparent;
+    border: 2px solid white;
+    color: white;
+}
+
+.btn-sm:hover {
+    background: white;
+    color: #0b1220;
+}
+
+/* ------------------------------------- TEMA CLARO ---------------------------------------- */
+
+body.ntema .btn-mp {
+    background: black;
+    color: white;
+}
+
+body.ntema .btn-sm:hover, body.ntema .btn-mp:hover {
+    box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+}
+
+body.ntema .btn-sm {
+    border-color: black;
+    color: black;
+}
+
+body.ntema .btn-sm:hover {
+    background: black;
+    color: white;
+}
+
+/* ---------------------------------- RESPONSIVIDADE ---------------------------------- */
+
+@media (max-width: 1024px) {
+    .hero h1 {
+        font-size: 40px;
+    }
+
+    .hero h2 {
+        font-size: 22px;
+    }
+}
+
+@media (max-width: 768px) {
+    .hero h1 {
+        font-size: 34px;
+    }
+
+    .hero h2 {
+        font-size: 20px;
+    }
+
+    .btn {
+        font-size: 16px;
+        padding: 10px 22px;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero h1 {
+        font-size: 28px;
+    }
+
+    .hero h2 {
+        font-size: 18px;
+    }
+
+    .botoes {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .btn {
+        width: 100%;
+        max-width: 260px;
+        margin: 0 auto;
+    }
+}

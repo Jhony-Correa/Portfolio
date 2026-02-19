@@ -1,0 +1,313 @@
+
+body {
+    margin: 0;
+    overflow-Y: auto;
+}
+/* ------------------------------------- texto ---------------------------------------- */
+
+h1, h2, h3, img {
+    position: relative;
+    z-index: 10;
+    color: white;
+
+}
+
+#texto{
+    text-shadow:
+        -1px -1px 0 #000,
+         1px -1px 0 #000,
+        -1px  1px 0 #000,
+         1px  1px 0 #000;
+    transition:
+        transform 2s ease,
+        opacity 1s ease;
+}
+
+#texto h1 {
+    user-select: none;
+    position: relative;
+    margin-top: 150px;
+    text-decoration: underline;
+}
+
+#texto h2 {
+    position: relative;
+    user-select: none;
+    text-align: justify;
+    text-justify: inter-word;
+    max-width: 800px;
+    margin: 40px auto;
+    line-height: 1.7;
+}
+
+#texto.arrastar{
+    transform: translateX(+250px);
+}
+
+/* ------------------------------------- PDF ---------------------------------------- */
+.pdf {
+    display: inline-block;
+    position: relative;
+    z-index: 10;
+    padding: 12px 24px;
+    border-radius: 8px;
+    background-color: white;
+    color: #0b1220;
+    text-shadow: none;
+    text-decoration: none;
+    user-select: none;
+    font-weight: 800;
+    transition: transform .3s, box-shadow .3s;
+}
+
+.pdf:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 15px rgba(255, 0, 0,.5);
+}
+
+
+/* ------------------------------------- FOTO ---------------------------------------- */
+.ftp{
+    position: absolute;
+    top: 150px;
+    right: 20px;
+    width: 500px;
+    border-radius: 10%;
+    z-index: 0;
+    transition:
+        transform 3s ease,
+        opacity 2s ease;
+}
+
+#ftp.esconder {
+    transform: translateX(+100px);
+    opacity: 0;
+    user-select: none;
+    pointer-events: none;
+}
+
+/* ------------------------------------- BOTÕES ---------------------------------------- */
+.met{
+    position: absolute;
+    user-select: none;
+    cursor: pointer;
+    display: inline-block;
+    padding: 12px 26px;
+    border-radius: 8px;
+    background-color: SkyBlue;
+    color: #0b1220;
+    left: 150px;
+    top: 300px;
+    z-index: 30;
+}
+.met:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 15px rgba(0, 255, 255,.5);
+}
+
+.ti{
+    position: absolute;
+    user-select: none;
+    cursor: pointer;
+    display: inline-block;
+    padding: 12px 55px;
+    border-radius: 8px;
+    background-color: MediumSeaGreen;
+    color: #0b1220;
+    left: 150px;
+    top: 500px;
+    z-index: 30;
+}
+.ti:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 15px rgba(0, 255, 0,.5);
+}
+
+.met.esconder, .ti.esconder {
+    opacity: 0;
+    user-select: none;
+    pointer-events: none;
+}
+.met.alterar, .ti.alterar {
+    left: 0px;
+    top: -18px;
+    padding: 12px 20px;
+    transform: translateX(+500px);
+    transition: transform 3s ease;
+}
+
+.logo.arrastar{
+    transform: translateX(+550px);
+}
+
+/* ------------------------------------- TEXTO2 ---------------------------------------- */
+#tmet, #tti{
+    position: absolute;
+    margin-top: -680px;
+    margin-left: 50px;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+
+#tmet:not(.aparecer), #tti:not(.aparecer) {
+    transition: opacity 0s;
+    opacity: 0;
+}
+
+#tmet h1, #tti h1{
+    user-select: none;
+    color: black;
+    position: relative;
+    text-decoration: underline;
+}
+
+#tmet h2, #tti h2 {
+    position: relative;
+    color: black;
+    user-select: none;
+    text-align: justify;
+    text-justify: inter-word;
+    max-width: 450px;
+    margin: 4px auto;
+    font-size: 20px;
+}
+
+.lista::before {
+  content: "• ";
+  margin-right: 6px;
+}
+
+#tmet.aparecer, #tti.aparecer{
+    transition-delay: 2s;
+    opacity: 1;
+}
+
+.ftm, .ftt{
+    margin-top: 20px;
+    width: 290px;
+    border-radius: 10%;
+    z-index: 0;
+}
+
+/* ------------------------------------- BARRA ---------------------------------------- */
+.barra{
+    position: absolute;
+    user-select: none;
+    display: inline-block;
+    width: 0;
+    height: 100vh;
+    border-radius: 0;
+    color: #0b1220;
+    left: 0;
+    top: 0;
+    z-index: -1;
+    transition: padding 2.5s ease;
+}
+
+.barra.alt1{
+    width: 555px;
+    background-color: skyblue;
+}
+.barra.alt2{
+    width: 555px;
+    background-color: MediumSeaGreen;
+}
+
+/* ------------------------------------- TEMAS ---------------------------------------- */
+
+
+body.ntema .pdf{
+    background-color: black;
+    color: Aliceblue;
+}
+
+body.ntema #texto{
+    text-shadow: none;
+}
+
+/* ----------------------------------RESPONSIVIDADE-------------------------------------------------- */
+@media (max-width: 1400px) {
+
+    .ftp {
+        width: 350px;
+        top: 180px;
+        right: 10px;
+    }
+    #texto h2 {
+        max-width: 600px;
+        padding: 0 20px;
+    }
+    .met, .ti {
+        left: 100px;
+    }
+    #tmet, #tti{
+        position: absolute;
+        margin-top: -790px;
+        margin-left: 50px;
+        opacity: 0;
+        transition: opacity 0.5s ease;
+    }
+}
+
+@media (max-width: 1220px) {
+    .logo.arrastar{
+        transform: none;
+    }
+    #texto.arrastar{
+        transform: none;
+    }
+
+    .ftp {
+        position: relative;
+        width: 80%;
+        max-width: 350px;
+        margin: 30px auto;
+        display: block;
+        top: 10px;
+        right: 0;
+    }
+    #ftp.esconder {
+        transform: translateX(+0px);
+        opacity: 1;
+    }
+    .met, .ti {
+        position: relative;
+        left: 0;
+        top: 0;
+        margin: 15px auto;
+        display: block;
+        width: 150px;
+        text-align: center;
+        padding: 10px;
+    }
+    .met.alterar{
+        position: relative;
+        left: 210px;
+        top: 120px;
+        display: block;
+        width: fit-content;
+        transform: none;
+    }
+    .ti.alterar{
+        position: relative;
+        left: 210px;
+        top: 65px;
+        display: block;
+        width: fit-content;
+        transform: none;
+    }
+    .barra {
+        position: relative;
+        border-radius: 20px;
+    }
+    #tti{
+        position: relative;
+        left: -25px;
+        top: -100px;
+    }
+    #tmet{
+        position: relative;
+        left: -25px;
+        top: -70px;
+    }
+}

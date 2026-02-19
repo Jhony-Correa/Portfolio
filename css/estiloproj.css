@@ -1,0 +1,301 @@
+/* ------------------------------------- texto ---------------------------------------- */
+
+h1, h2, h3, h4, img {
+    position: relative;
+    z-index: 10;
+    color: white
+}
+
+
+/* ------------------------------------- LISTA ---------------------------------------- */
+
+.container-projetos {
+    position: absolute;
+    left: 55%;
+    top: 25%;
+    width: 90%;
+    max-width: 600px;
+    color: #4a5568;
+    z-index: 10;
+    transition:
+        transform 3s ease,
+        opacity 2s ease;
+}
+
+.container-projetos.esconder {
+    transform: translateX(+100px);
+    opacity: 0;
+    user-select: none;
+    pointer-events: none;
+}
+
+.header-projetos {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  padding-bottom: 10px;
+  border-bottom: 1.5px solid rgba(255, 255, 255, 0.4);
+  margin-bottom: 0;
+}
+
+.header-projetos h1 {
+  font-size: 2.5rem;
+  margin: 0;
+  letter-spacing: -1px;
+}
+
+.item-projeto {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 25px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.link-projeto {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+}
+
+.item-projeto .nome {
+  font-weight: 800;
+  font-size: 1.1rem;
+  letter-spacing: 1px;
+}
+
+.item-projeto:hover {
+  padding-left: 15px;
+  background-color: rgba(128, 128, 128, 0.2);
+}
+
+.item-projeto .nome {
+  font-weight: 800;
+  font-size: 1.1rem;
+  letter-spacing: 1px;
+}
+
+/* ------------------------------------- GitHub ---------------------------------------- */
+.gh{
+    position: absolute;
+    z-index: 5;
+    width: 500px;
+    height: 500px;
+    border-radius: 20%;
+    left: 7%;
+    top: 25%;
+    overflow: hidden;
+    background-color: rgba(128, 128, 128, 0.2);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    transition:
+        transform 3s ease,
+        opacity 2s ease;
+}
+
+.gh.esconder {
+    transform: translateX(-100px);
+    opacity: 0;
+    user-select: none;
+    pointer-events: none;
+}
+
+.circulo {
+    position: absolute;
+    top: 18%;
+    width: 200px;
+    height: 200px;
+    border-radius: 100%;
+    overflow: hidden;
+    background-color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+.gh:hover {
+    transform: scale(1.1);
+}
+
+.ghi {
+    position: relative;
+    top: 20px;
+    width: 110%;
+    height: 110%;
+    object-fit: cover;
+    display: block;
+    z-index: 0;
+}
+
+.ght{
+    position: absolute;
+    top: 50%;
+    font-size: 45px;
+}
+
+.nm{
+    position: absolute;
+    top: 63%;
+    font-size: 35px;
+}
+
+/* ------------------------------------- PREVIEW ---------------------------------------- */
+
+#preview-projeto {
+    position: absolute;
+    z-index: 10;
+    width: 500px;
+    height: 500px;
+    border-radius: 20%;
+    left: 7%;
+    top: 25%;
+    overflow: hidden;
+    background-color: rgba(128, 128, 128, 0.2);
+    display: flex;
+    opacity: 0;
+    transition: all 2s ease;
+    user-select: none;
+    pointer-events: none;
+}
+
+#preview-projeto.visivel {
+    opacity: 1;
+}
+
+#img-preview {
+    position: absolute;
+    top: 5%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 90%;
+    height: 60%;
+    border-radius: 20% 20% 0% 0%;
+}
+
+#desc-preview1 {
+    z-index: 15;
+    position: absolute;
+    top: 65%;
+    width: 100%;
+    font-size: 20px;
+    color: white;
+    line-height: 1.4;
+    margin: 0;
+    text-align: center;
+}
+#desc-preview2 {
+    z-index: 15;
+    position: absolute;
+    top: 75%;
+    left: 10%;
+    width: 80%;
+    font-size: 15px;
+    color: white;
+    line-height: 1.4;
+    margin: 0;
+    text-align: justify;
+}
+
+/* ------------------------------------- TEMAS ---------------------------------------- */
+
+body.ntema .header-projetos{
+  border-bottom: 1.5px solid rgba(0, 0, 0, 0.4);
+}
+
+body.ntema .item-projeto{
+    border-bottom: 1px solid rgba(0, 0, 0, 0.15);
+}
+
+body.ntema .circulo{
+    background-color: black;
+}
+
+body.ntema .nm, body.ntema #desc-preview1, body.ntema #desc-preview2{
+    color: black;
+}
+
+/* ---------------------------------- RESPONSIVIDADE ---------------------------------- */
+
+@media (max-width: 1350px) {
+
+    .container-projetos {
+        position: relative;
+        top: 150px;
+        transform: translateX(-30%);
+        width: 92%;
+    }
+
+    .gh,
+    #preview-projeto {
+        width: 420px;
+        height: 420px;
+    }
+    .circulo {
+        top: 14%;
+    }
+
+    .ght{
+        top: 56%;
+    }
+
+    .nm{
+        top: 67%;
+    }
+    #img-preview {
+        height: 50%;
+    }
+
+    #desc-preview1 {
+        top: 55%;
+    }
+    #desc-preview2 {
+        top: 65%;
+}
+
+}
+
+@media (max-width: 1200px) {
+
+    .container-projetos {
+        position: relative;
+        left: 50%;
+        top: 150px;
+        transform: translateX(-50%);
+        width: 92%;
+    }
+
+    .gh,
+    #preview-projeto {
+        position: absolute;
+        left: 50%;
+        top: 650px;
+        transform: translateX(-50%);
+        width: 90%;
+        max-width: 300px;
+        height: 300px;
+        margin-bottom: 30px;
+    }
+    .circulo {
+        top: 5%;
+    }
+    .gh:hover {
+        transform: translateX(-50%);
+    }
+
+    #img-preview {
+        top: 5%;
+        width: 90%;
+        height: 60%;
+    }
+    #desc-preview1 {
+        top: 75%;
+    }
+    #desc-preview2 {
+        opacity:0;
+}
+
+}
