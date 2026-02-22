@@ -1,6 +1,7 @@
 # Portfolio
 
-Meu portfólio pessoal com uma coleção dos meus principais projetos de desenvolvimento, destacando minhas competências técnicas, experiências e aplicações desenvolvidas em diferentes contextos. O projeto foi criado para apresentar minha evolução como desenvolvedor, com foco em organização, design e experiência do usuário.
+#### Bem-vindo ao meu portfólio pessoal! Este site serve como uma vitrine dos meus projetos, habilidades técnicas e experiências profissionais. Desenvolvido com foco em simplicidade, responsividade e usabilidade, ele destaca minha jornada como desenvolvedor, combinando conhecimentos em metrologia e tecnologia da informação.
+#### Aqui, você encontrará uma visão geral da minha trajetória, projetos selecionados com descrições detalhadas, e formas de contato. O site é bilíngue (português e inglês) para maior acessibilidade.
 
 ## Tecnologias utilizadas
 
@@ -10,19 +11,18 @@ Meu portfólio pessoal com uma coleção dos meus principais projetos de desenvo
 
 ## Funcionalidades
 
-- Layout responsivo
-- Navegação intuitiva
-- Seção de projetos com descrição detalhada
-- Página sobre mim
-- Seção de contato
+- **Layout Responsivo:** Adaptável a desktops, tablets e mobiles.
+- **Navegação Intuitiva:** Menu simples para alternar entre seções (Início, Sobre, Projetos, Contatos).
+- **Seção de Projetos:** Lista de projetos com links para repositórios e descrições.
+- **Currículo Integrado:** Download do CV em PDF diretamente do site.
+- **Formas de Contato:** Links diretos para e-mail, LinkedIn e Instagram.
 
 ## Objetivo do Projeto
 
-O Portfólio foi criado para:
-- Apresentar visualmente os meus projetos completos.
+- Apresentar meus projetos de forma visual e organizada.
 - Mostrar as tecnologias que eu domino.
-- Facilitar o acesso aos meus trabalhos.
-- Ser um cartão de visita profissional online.
+- Servir como um "cartão de visitas" profissional.
+- Facilitar o compartilhamento da minha evolução.
 
 ## Preview
 
@@ -72,6 +72,8 @@ cd Portfolio
 
 - **E-mail:** jhonyluiscorrea@hotmail.com
 - **Linkedin:** [Jhony Corrêa](https://www.linkedin.com/in/jhony-corr%C3%AAa-45527426a/)
+- **Instagram:** [@Jhony__Correa](https://www.instagram.com/Jhony__Correa/)
+- **Telefone:** +55 21 98623-9103
 
 ## Autor
 Jhony Luis Ozório Corrêa
