@@ -97,6 +97,7 @@ const list = document.querySelector(".container-projetos");
 const menu = document.getElementById("menu");
 const bTema = document.querySelector('.tema');
 const bIdioma = document.querySelector('.idioma');
+const sc = document.querySelector('.secao');
 const ngh = document.querySelector('.ghi');
 const temaSalvo = localStorage.getItem('tema');
 const itensProjeto = document.querySelectorAll(".item-projeto");
@@ -134,8 +135,8 @@ if (bTema) {
 //----------------------------------------MENU----------------------------------------
 
 if (menu) {
-    menu.addEventListener("click", () => {
-        menu.classList.toggle("ativo");
+    const toggleMenu = (e) => {
+        e.preventDefault();menu.classList.toggle("ativo");
 
         if (menu.classList.contains('ativo')) {
             if (texto) texto.classList.add("esconder");
@@ -160,12 +161,21 @@ if (menu) {
             if (texto) texto.classList.remove("esconder");
             if (opmenu) opmenu.classList.remove("aparecer");
             if (ftp) ftp.classList.remove("esconder");
+            if (ftp) ftp.classList.remove("sumir");
             if (bti) bti.classList.remove("esconder");
             if (bmet) bmet.classList.remove("esconder");
             if (gh) gh.classList.remove("esconder");
             if (list) list.classList.remove("esconder");
+
+            if (barra) barra.classList.remove("alt2");
+            if (tti) tti.classList.remove("aparecer");
+            if (sc) sc.classList.remove("aparecer");
+            if (bti) bti.classList.remove("alterar");
+            if (barra) barra.classList.remove("alt1");
+            if (tmet) tmet.classList.remove("aparecer");
         }
-    });
+    };
+    menu.addEventListener("click", toggleMenu);
 }
 
 //----------------------------------------Metrologia----------------------------------------
@@ -174,21 +184,23 @@ if (bmet) {
         bmet.classList.toggle("bma");
 
         if (bmet.classList.contains('bma')) {
-            if (ftp) ftp.classList.add("esconder");
+            if (ftp) ftp.classList.add("sumir");
             if (bti) bti.classList.add("esconder");
             if (texto) texto.classList.add("arrastar");
             if (logo) logo.classList.add("arrastar");
             if (barra) barra.classList.add("alt1");
             if (tmet) tmet.classList.add("aparecer");
+            if (sc) sc.classList.add("aparecer");
             if (bmet) bmet.classList.add("alterar");
             if (bmet) bmet.innerText = "X";
         } else {
-            if (ftp) ftp.classList.remove("esconder");
+            if (ftp) ftp.classList.remove("sumir");
             if (bti) bti.classList.remove("esconder");
             if (texto) texto.classList.remove("arrastar");
             if (logo) logo.classList.remove("arrastar");
             if (barra) barra.classList.remove("alt1");
             if (tmet) tmet.classList.remove("aparecer");
+            if (sc) sc.classList.remove("aparecer");
             if (bmet) bmet.classList.remove("alterar");
             if (bmet) bmet.innerText = "Metrologia";
         }
@@ -200,21 +212,23 @@ if (bti) {
         bti.classList.toggle("bta");
 
         if (bti.classList.contains('bta')) {
-            if (ftp) ftp.classList.add("esconder");
+            if (ftp) ftp.classList.add("sumir");
             if (bmet) bmet.classList.add("esconder");
             if (texto) texto.classList.add("arrastar");
             if (logo) logo.classList.add("arrastar");
             if (barra) barra.classList.add("alt2");
             if (tti) tti.classList.add("aparecer");
+            if (sc) sc.classList.add("aparecer");
             if (bti) bti.classList.add("alterar");
             if (bti) bti.innerText = "X";
         } else {
-            if (ftp) ftp.classList.remove("esconder");
+            if (ftp) ftp.classList.remove("sumir");
             if (bmet) bmet.classList.remove("esconder");
             if (texto) texto.classList.remove("arrastar");
             if (logo) logo.classList.remove("arrastar");
             if (barra) barra.classList.remove("alt2");
             if (tti) tti.classList.remove("aparecer");
+            if (sc) sc.classList.remove("aparecer");
             if (bti) bti.classList.remove("alterar");
             if (bti) bti.innerText = "TI";
         }

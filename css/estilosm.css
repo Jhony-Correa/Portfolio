@@ -5,7 +5,7 @@ body {
 }
 /* ------------------------------------- texto ---------------------------------------- */
 
-h1, h2, h3, img {
+h1, h2, h3 {
     position: relative;
     z-index: 10;
     color: white;
@@ -74,11 +74,18 @@ h1, h2, h3, img {
     width: 500px;
     border-radius: 10%;
     z-index: 0;
+    opacity: 1;
     transition:
         transform 3s ease,
         opacity 2s ease;
 }
 
+#ftp.sumir {
+    transform: translateX(+100px);
+    opacity: 0;
+    user-select: none;
+    pointer-events: none;
+}
 #ftp.esconder {
     transform: translateX(+100px);
     opacity: 0;
@@ -143,8 +150,8 @@ h1, h2, h3, img {
 /* ------------------------------------- TEXTO2 ---------------------------------------- */
 #tmet, #tti{
     position: absolute;
-    margin-top: -680px;
-    margin-left: 50px;
+    top: 20px;
+    left: 50px;
     opacity: 0;
     transition: opacity 0.5s ease;
 }
@@ -159,6 +166,7 @@ h1, h2, h3, img {
     color: black;
     position: relative;
     text-decoration: underline;
+    z-index: 20;
 }
 
 #tmet h2, #tti h2 {
@@ -170,6 +178,7 @@ h1, h2, h3, img {
     max-width: 450px;
     margin: 4px auto;
     font-size: 20px;
+    z-index: 20;
 }
 
 .lista::before {
@@ -190,18 +199,24 @@ h1, h2, h3, img {
 }
 
 /* ------------------------------------- BARRA ---------------------------------------- */
-.barra{
-    position: absolute;
-    user-select: none;
-    display: inline-block;
-    width: 0;
+.secao {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
     height: 100vh;
-    border-radius: 0;
-    color: #0b1220;
+    z-index: -10;
+    pointer-events: none;
+}
+
+.barra{
+    position: relative;
+    width: 0vw;
+    height: 100vh;
     left: 0;
     top: 0;
     z-index: -1;
-    transition: padding 2.5s ease;
+    transition: width 2.5s ease;
 }
 
 .barra.alt1{
@@ -242,8 +257,8 @@ body.ntema #texto{
     }
     #tmet, #tti{
         position: absolute;
-        margin-top: -790px;
-        margin-left: 50px;
+        top: 20px;
+        left: 50px;
         opacity: 0;
         transition: opacity 0.5s ease;
     }
@@ -266,9 +281,26 @@ body.ntema #texto{
         top: 10px;
         right: 0;
     }
-    #ftp.esconder {
-        transform: translateX(+0px);
+    .ftp {
+        position: relative;
+        width: 80%;
+        max-width: 350px;
+        margin: 30px auto;
+        display: block;
+        top: 10px;
+        right: 0;
+    }
+    #ftp.sumir {
+        transform: none;
         opacity: 1;
+        user-select: none;
+        pointer-events: none;
+    }
+    #ftp.esconder {
+        transform: translateX(+100px);
+        opacity: 0;
+        user-select: none;
+        pointer-events: none;
     }
     .met, .ti {
         position: relative;
@@ -280,34 +312,76 @@ body.ntema #texto{
         text-align: center;
         padding: 10px;
     }
-    .met.alterar{
+    .met.alterar,
+    .ti.alterar {
         position: relative;
-        left: 210px;
-        top: 120px;
+        left: 0;
+        top: 0;
+        border-radius: 50%;
         display: block;
         width: fit-content;
         transform: none;
     }
-    .ti.alterar{
+    .met.alterar{
+        top: 28px;
+    }
+    .ti.alterar {
+        top: -28px;
+    }
+    .secao {
         position: relative;
-        left: 210px;
-        top: 65px;
-        display: block;
-        width: fit-content;
-        transform: none;
+        width: 100%;
+        height: 0;
+        visibility: hidden;
+        overflow: hidden;
+        transition: height 0s;
+    }
+    .secao.aparecer {
+        visibility: visible;
+        min-height: 150vh;
+        transition: height 0s;
     }
     .barra {
-        position: relative;
-        border-radius: 20px;
+        position: absolute;
+        height: 100%;
+        top: 0;
+        border-radius: 10px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 0;
+        transition: width 1.5s cubic-bezier(0.25, 1, 0.5, 1);
     }
-    #tti{
-        position: relative;
-        left: -25px;
-        top: -100px;
+
+    .barra.alt1, .barra.alt2{
+        width: 96%;
     }
-    #tmet{
+
+    .tem{
         position: relative;
-        left: -25px;
-        top: -70px;
+    }
+    #tmet, #tti {
+        position: absolute;
+        top: -1100px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 90%;
+        max-width: 800px;
+        visibility: hidden;
+        height: 0;
+        overflow: hidden;
+    }
+    #tmet.aparecer, #tti.aparecer {
+        visibility: visible;
+        height: auto;
+    }
+    .esp {
+        height: 50px;
+        width: 100%;
+    }
+}
+
+@media (max-height: 723px) {
+    #tmet, #tti {
+        top: -850px;
     }
 }

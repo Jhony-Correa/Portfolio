@@ -263,7 +263,7 @@ body.ntema .nm, body.ntema #desc-preview1, body.ntema #desc-preview2{
     .container-projetos {
         position: relative;
         left: 50%;
-        top: 150px;
+        top: 175px;
         transform: translateX(-50%);
         width: 92%;
     }
@@ -272,7 +272,7 @@ body.ntema .nm, body.ntema #desc-preview1, body.ntema #desc-preview2{
     #preview-projeto {
         position: absolute;
         left: 50%;
-        top: 650px;
+        top: 700px;
         transform: translateX(-50%);
         width: 90%;
         max-width: 300px;
@@ -296,6 +296,10 @@ body.ntema .nm, body.ntema #desc-preview1, body.ntema #desc-preview2{
     }
     #desc-preview2 {
         opacity:0;
-}
+    }
+    .esp {
+        height: 600px;
+        width: 100%;
+    }
 
 }
