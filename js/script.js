@@ -1,3 +1,11 @@
+function debounce(func, delay) {
+    let timeout;
+    return function() {
+        clearTimeout(timeout);
+        timeout = setTimeout(() => func.apply(this, arguments), delay);
+    };
+}
+
 //----------------------------------------SETA----------------------------------------
 const canvas = document.getElementById("trail");
 const ctx = canvas.getContext("2d");
@@ -5,10 +13,10 @@ const ctx = canvas.getContext("2d");
 let width = canvas.width = window.innerWidth;
 let height = canvas.height = window.innerHeight;
 
-window.addEventListener("resize", () => {
+window.addEventListener("resize", debounce(() => {
     width = canvas.width = window.innerWidth;
     height = canvas.height = window.innerHeight;
-});
+}, 200));
 
 let lastX = null;
 let lastY = null;
@@ -81,6 +89,9 @@ function animate() {
 
 animate();
 
+if (window.innerWidth <= 768) {
+    canvas.style.display = 'none';
+}
 
 //----------------------------------------SELEÇÃO DE ELEMENTOS----------------------------------------
 const ftp = document.getElementById("ftp");
@@ -136,7 +147,16 @@ if (bTema) {
 
 if (menu) {
     const toggleMenu = (e) => {
-        e.preventDefault();menu.classList.toggle("ativo");
+        if (e.type === 'touchend') {
+            e.preventDefault();
+        }
+        const isActive = menu.classList.toggle("ativo");
+        document.body.classList.toggle("ativo");
+
+        if (isActive) {
+            document.addEventListener('click', closeIfOutside, { once: true });
+            document.addEventListener('touchend', closeIfOutside, { passive: true, once: true });
+        }
 
         if (menu.classList.contains('ativo')) {
             if (texto) texto.classList.add("esconder");
@@ -147,7 +167,7 @@ if (menu) {
             if (gh) gh.classList.add("esconder");
             if (list) list.classList.add("esconder");
             if (tmet) tmet.classList.remove("aparecer");
-            if (gh) gh.style.opacity = ""
+            if (gh) gh.style.opacity = "";
             if (tti) tti.classList.remove("aparecer");
             if (barra) barra.classList.remove("alt1");
             if (barra) barra.classList.remove("alt2");
@@ -175,7 +195,30 @@ if (menu) {
             if (tmet) tmet.classList.remove("aparecer");
         }
     };
+
+    function closeIfOutside(e) {
+        if (!menu.contains(e.target) && !opmenu.contains(e.target)) {
+            menu.classList.remove("ativo");
+            document.body.classList.remove("ativo");
+            if (texto) texto.classList.remove("esconder");
+            if (opmenu) opmenu.classList.remove("aparecer");
+            if (ftp) ftp.classList.remove("esconder");
+            if (ftp) ftp.classList.remove("sumir");
+            if (bti) bti.classList.remove("esconder");
+            if (bmet) bmet.classList.remove("esconder");
+            if (gh) gh.classList.remove("esconder");
+            if (list) list.classList.remove("esconder");
+            if (barra) barra.classList.remove("alt2");
+            if (tti) tti.classList.remove("aparecer");
+            if (sc) sc.classList.remove("aparecer");
+            if (bti) bti.classList.remove("alterar");
+            if (barra) barra.classList.remove("alt1");
+            if (tmet) tmet.classList.remove("aparecer");
+        }
+    }
+
     menu.addEventListener("click", toggleMenu);
+    menu.addEventListener("touchend", toggleMenu);
 }
 
 //----------------------------------------Metrologia----------------------------------------

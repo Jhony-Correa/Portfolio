@@ -4,7 +4,9 @@ body {
     background: #0b1220;
     text-align: center;
 }
-
+body.ativo {
+    overflow: hidden;
+}
 #trail {
     position: fixed;
     inset: 0;
@@ -64,6 +66,7 @@ body {
     height: 40px;
     cursor: pointer;
     z-index: 30;
+    touch-action: manipulation;
 }
 
 .menu span {
@@ -131,6 +134,7 @@ body {
     opacity: 0;
     transform: translateX(40px);
     transition: transform 0.6s ease, opacity 0.6s ease;
+    will-change: transform, opacity;
 }
 
 #opmenu h2 span {
@@ -206,17 +210,6 @@ body.ntema .menu span {
     }
 }
 /* ------------------------------------- RESPONSIVIDADE ---------------------------------------- */
-
-@media (max-width: 1000px) {
-    canvas {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 0vw;
-        height: 0vh;
-        pointer-events: none;
-    }
-}
 
 @media (max-width: 400px) {
     .logo {
