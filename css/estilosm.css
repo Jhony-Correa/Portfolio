@@ -148,12 +148,20 @@ h1, h2, h3 {
 }
 
 /* ------------------------------------- TEXTO2 ---------------------------------------- */
+.tem {
+    position: relative;
+    padding: 20px;
+    min-height: 100vh;
+    box-sizing: border-box;
+}
+
 #tmet, #tti{
     position: absolute;
     top: 20px;
     left: 50px;
     opacity: 0;
     transition: opacity 0.5s ease;
+    box-sizing: border-box;
 }
 
 #tmet:not(.aparecer), #tti:not(.aparecer) {
@@ -200,22 +208,21 @@ h1, h2, h3 {
 
 /* ------------------------------------- BARRA ---------------------------------------- */
 .secao {
-    position: fixed;
+    position: absolute;
     top: 0;
     left: 0;
     width: 100vw;
-    height: 100vh;
-    z-index: -10;
+    height: auto;
     pointer-events: none;
+    overflow-y: none;
 }
 
 .barra{
-    position: relative;
-    width: 0vw;
-    height: 100vh;
+    position: fixed;
+    width: 0;
+    height: 100%;
     left: 0;
     top: 0;
-    z-index: -1;
     transition: width 2.5s ease;
 }
 
@@ -228,6 +235,11 @@ h1, h2, h3 {
     background-color: MediumSeaGreen;
 }
 
+
+.esp {
+    height: 50px;
+    width: 100%;
+}
 /* ------------------------------------- TEMAS ---------------------------------------- */
 
 
@@ -338,17 +350,20 @@ body.ntema #texto{
     }
     .secao.aparecer {
         visibility: visible;
-        min-height: 150vh;
-        transition: height 0s;
+        height: auto;
+        min-height: auto;
+        padding: 20px 0;
+        transition: none;
     }
     .barra {
         position: absolute;
-        height: 100%;
         top: 0;
-        border-radius: 10px;
         left: 50%;
         transform: translateX(-50%);
+        height: 100%;
         width: 0;
+        border-radius: 10px;
+        z-index: -1;
         transition: width 1.5s cubic-bezier(0.25, 1, 0.5, 1);
     }
 
@@ -358,30 +373,28 @@ body.ntema #texto{
 
     .tem{
         position: relative;
+        z-index: 1;
+        max-width: 90%;
+        margin: 0 auto;
+        padding: 20px;
     }
     #tmet, #tti {
-        position: absolute;
-        top: -1100px;
-        left: 50%;
-        transform: translateX(-50%);
-        width: 90%;
-        max-width: 800px;
+        position: static;
+        opacity: 0;
+        transition: opacity 0.5s ease;
+        width: 100%;
+        visibility: hidden;
+    }
+    #tmet:not(.aparecer), #tti:not(.aparecer) {
+        opacity: 0;
         visibility: hidden;
         height: 0;
         overflow: hidden;
     }
     #tmet.aparecer, #tti.aparecer {
+        opacity: 1;
         visibility: visible;
         height: auto;
-    }
-    .esp {
-        height: 50px;
-        width: 100%;
-    }
-}
-
-@media (max-height: 723px) {
-    #tmet, #tti {
-        top: -850px;
+        transition-delay: 0.5s
     }
 }

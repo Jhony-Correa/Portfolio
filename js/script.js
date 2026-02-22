@@ -89,7 +89,7 @@ function animate() {
 
 animate();
 
-if (window.innerWidth <= 768) {
+if (window.innerWidth <= 800) {
     canvas.style.display = 'none';
 }
 
@@ -233,6 +233,8 @@ if (bmet) {
             if (logo) logo.classList.add("arrastar");
             if (barra) barra.classList.add("alt1");
             if (tmet) tmet.classList.add("aparecer");
+            if (tti) tti.classList.remove("aparecer");
+            if (barra) barra.classList.remove("alt2");
             if (sc) sc.classList.add("aparecer");
             if (bmet) bmet.classList.add("alterar");
             if (bmet) bmet.innerText = "X";
@@ -263,6 +265,8 @@ if (bti) {
             if (tti) tti.classList.add("aparecer");
             if (sc) sc.classList.add("aparecer");
             if (bti) bti.classList.add("alterar");
+            if (tmet) tmet.classList.remove("aparecer");
+            if (barra) barra.classList.remove("alt1");
             if (bti) bti.innerText = "X";
         } else {
             if (ftp) ftp.classList.remove("sumir");
